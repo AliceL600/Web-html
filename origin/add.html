@@ -1,16 +1,46 @@
 <!DOCTYPE html>
+
+
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
   <script>
-          
+          console.log("a");
+      //     var url = new URL(window.location.href);
+      // // 解析查询字符串中的参数
+      //     var params = new URLSearchParams(url.search);
+      //
+      // // 访问特定的参数
+      //     var param1 = params.get("param1");
+      // // 打印参数
+      // console.log("参数1值为：" + param1+params);
+      let urlParams = new URLSearchParams(window.location.search);
+      let param1 = urlParams.get('param1');
+      let currentDate = new Date();
+      let myData = {
+        param1: param1,
+        visitTime: currentDate.toString()
+      };
+      localStorage.setItem('myData', JSON.stringify(myData));
+     // let myData = JSON.parse(localStorage.getItem('myData'));
+      console.log(myData.param1);  // 输出param1参数的值
+      console.log(myData.visitTime);
+      let dataString = `Param1: ${param1}\nVisit time: ${currentDate.toString()}`;
+      let blob = new Blob([dataString], {type: 'text/plain'});
+      let file = new File([blob], 'myFile.txt', {type: 'text/plain'});
+
+      //saveAs(blob, "file");
+          window.location.href = "weixin://contacts/profile/Wx-lfff206";
+
   </script>
+
+
   <a href="weixin://contacts/profile/l2811150037">add</a><br><a href="weixin://findfriend/verifycontact/l2811150037">add</a>
-  const params = new URLSearchParams(window.location.search);
-  const myParam = params.get('myParam');
-  console.log(myParam);
+
+
 </head>
 <body>
 
