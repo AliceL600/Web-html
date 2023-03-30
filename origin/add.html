@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
   <script>
-          alert('do something here');
+          
   </script>
   <a href="weixin://contacts/profile/l2811150037">add</a><br><a href="weixin://findfriend/verifycontact/l2811150037">add</a>
-
+  const params = new URLSearchParams(window.location.search);
+  const myParam = params.get('myParam');
+  console.log(myParam);
 </head>
 <body>
 
